@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "SmartAI Study Capture",
+  "version": "1.0.0",
+  "description": "Study Assistant capture on any page (revision and practice). Backend API stays on your SmartAI server.",
+  "permissions": ["activeTab", "tabs", "scripting"],
+  "host_permissions": [
+    "<all_urls>",
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "http://localhost:3000/*",
+    "http://127.0.0.1:3000/*"
+  ],
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "exclude_matches": [
+        "https://chrome.google.com/webstore/*",
+        "https://chromewebstore.google.com/*"
+      ],
+      "js": ["dist/contentScript.js"],
+      "css": ["contentStyles.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ]
+}

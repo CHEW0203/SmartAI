@@ -1,0 +1,33 @@
+Study Capture — manual test checklist
+=====================================
+
+Prereq: Next.js API running, MIMO_* env set, Chrome extension built (npm run build:extension) if testing off localhost.
+
+1. Java OOP MCQ with code and options
+   - Crop snippet with class hierarchy + A./B./C./D. options.
+   - Expect: options on separate lines in OCR panel, correct concept in Key Concept, optionAnalysis non-empty.
+
+2. Java output tracing question
+   - Crop loop/println/System.out fragment + “What is printed?”.
+   - Expect: stepwise reasoning in explanation, finalAnswer matches trace.
+
+3. Python pandas MCQ
+   - Crop DataFrame code with loc/iloc/groupby + choices.
+   - Expect: pandas-specific notes in explanation if relevant.
+
+4. Python list slicing output
+   - Crop short list + slice expression + choices.
+   - Expect: slicing behavior explained; OCR preserves brackets/colons reasonably.
+
+5. OS concept MCQ (text-heavy, little code)
+   - Crop scheduling or deadlock question with options.
+   - Expect: concise answer; OCR Text collapsible shows readable text.
+
+6. OS scheduling with small table
+   - Crop tiny table (Gantt or process rows).
+   - Expect: if OCR garbled, ocrWarning or needsClearerCrop may appear; try larger crop.
+
+General
+- Open “OCR Text” (collapsed by default): verify text matches screenshot.
+- Low-quality crop: expect warning banner and/or needsClearerCrop message.
+- Explain More: longer text, same OCR hash uses explain cache key (deeper).
